@@ -88,6 +88,9 @@ public class RedisRegistry extends FailbackRegistry {
             JedisPool jedisPool = entry.getValue();
             try {
                 Jedis jedis = jedisPool.getResource();
+                if(null != appContext.getConfig().getAuth()){
+                    jedis.auth(appContext.getConfig().getAuth());
+                }
                 try {
                     for (Node node : new HashSet<Node>(getRegistered())) {
                         String key = NodeRegistryUtils.getNodeTypePath(clusterName, node.getNodeType());
@@ -154,6 +157,9 @@ public class RedisRegistry extends FailbackRegistry {
             JedisPool jedisPool = entry.getValue();
             try {
                 Jedis jedis = jedisPool.getResource();
+                if(null != node.getAuth()) {
+                    jedis.auth(node.getAuth());
+                }
                 try {
                     jedis.hset(key, node.toFullString(), expire);
                     jedis.publish(key, Constants.REGISTER);
@@ -186,6 +192,9 @@ public class RedisRegistry extends FailbackRegistry {
             JedisPool jedisPool = entry.getValue();
             try {
                 Jedis jedis = jedisPool.getResource();
+                if(null != appContext.getConfig().getAuth()){
+                    jedis.auth(appContext.getConfig().getAuth());
+                }
                 try {
                     jedis.hdel(key, node.toFullString());
                     jedis.publish(key, Constants.UNREGISTER);
@@ -235,6 +244,9 @@ public class RedisRegistry extends FailbackRegistry {
                 JedisPool jedisPool = entry.getValue();
                 try {
                     Jedis jedis = jedisPool.getResource();
+                    if(null != appContext.getConfig().getAuth()){
+                        jedis.auth(appContext.getConfig().getAuth());
+                    }
                     try {
                         doNotify(jedis, Collections.singletonList(listenNodePath), Collections.singletonList(listener), true);
                         success = true;
@@ -353,6 +365,9 @@ public class RedisRegistry extends FailbackRegistry {
                     || msg.equals(Constants.UNREGISTER)) {
                 try {
                     Jedis jedis = jedisPool.getResource();
+                    if(null != appContext.getConfig().getAuth()){
+                        jedis.auth(appContext.getConfig().getAuth());
+                    }
                     try {
                         doNotify(jedis, key);
                     } finally {
@@ -395,6 +410,9 @@ public class RedisRegistry extends FailbackRegistry {
                         try {
                             JedisPool jedisPool = entry.getValue();
                             jedis = jedisPool.getResource();
+                            if(null != appContext.getConfig().getAuth()){
+                                jedis.auth(appContext.getConfig().getAuth());
+                            }
                             if (listenNodePath.equals(monitorId) && !redisAvailable) {
                                 redisAvailable = true;
                                 appContext.getRegistryStatMonitor().setAvailable(redisAvailable);

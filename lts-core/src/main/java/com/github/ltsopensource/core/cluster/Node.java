@@ -26,6 +26,8 @@ public class Node {
     private Integer threads;
     // 唯一标识
     private String identity;
+    // 密码
+    private String auth;
     // 命令端口
     private Integer httpCmdPort;
 
@@ -177,5 +179,13 @@ public class Node {
     @Override
     public String toString() {
         return JSON.toJSONString(this);
+    }
+
+    public String getAuth() {
+        return auth;
+    }
+
+    public void setAuth(String auth) {
+        this.auth = auth;
     }
 }

@@ -23,6 +23,10 @@ public abstract class AbstractConfigProperties {
      */
     private String registryAddress;
     /**
+     * redis(zookeeper) auth
+     */
+    private String auth;
+    /**
      * 执行绑定的本地ip
      */
     private String bindIp;
@@ -73,4 +77,11 @@ public abstract class AbstractConfigProperties {
         this.bindIp = bindIp;
     }
 
+    public String getAuth() {
+        return auth;
+    }
+
+    public void setAuth(String auth) {
+        this.auth = auth;
+    }
 }

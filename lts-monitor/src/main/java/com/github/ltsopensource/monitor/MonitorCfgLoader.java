@@ -54,6 +54,11 @@ public class MonitorCfgLoader {
                 cfg.setIdentity(identity);
             }
 
+            String auth = conf.getProperty("auth");
+            if (StringUtils.isNotEmpty(auth)) {
+                cfg.setAuth(auth);
+            }
+
             Map<String, String> configs = new HashMap<String, String>();
             for (Map.Entry<Object, Object> entry : conf.entrySet()) {
                 String key = entry.getKey().toString();

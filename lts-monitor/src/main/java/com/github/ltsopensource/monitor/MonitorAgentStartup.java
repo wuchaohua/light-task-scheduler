@@ -29,6 +29,9 @@ public class MonitorAgentStartup {
 
             agent.setRegistryAddress(cfg.getRegistryAddress());
             agent.setClusterName(cfg.getClusterName());
+            if (StringUtils.isNotEmpty(cfg.getAuth())) {
+                agent.setRegistryAuth(cfg.getAuth());
+            }
             if (StringUtils.isNotEmpty(cfg.getBindIp())) {
                 agent.setBindIp(cfg.getBindIp());
             }

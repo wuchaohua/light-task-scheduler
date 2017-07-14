@@ -174,6 +174,13 @@ public class MonitorAgent {
     }
 
     /**
+     * 设置zookeeper(Redis)注册中心密码
+     */
+    public void setRegistryAuth(String auth) {
+        config.setAuth(auth);
+    }
+
+    /**
      * 设置额外的配置参数
      */
     public void addConfig(String key, String value) {

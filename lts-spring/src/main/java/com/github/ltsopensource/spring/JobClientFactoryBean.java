@@ -37,7 +37,11 @@ public class JobClientFactoryBean implements FactoryBean<JobClient>,
      */
     private String registryAddress;
     /**
-     * 提交失败任务存储路径 , 默认用户木邻居
+     * zookeeper(Redis)密码
+     */
+    private String auth;
+    /**
+     * 提交失败任务存储路径 , 默认用户目录
      */
     private String dataPath;
 
@@ -88,6 +92,7 @@ public class JobClientFactoryBean implements FactoryBean<JobClient>,
             properties.setDataPath(dataPath);
             properties.setNodeGroup(nodeGroup);
             properties.setRegistryAddress(registryAddress);
+            properties.setAuth(auth);
             properties.setBindIp(bindIp);
             properties.setIdentity(identity);
             properties.setConfigs(CollectionUtils.toMap(configs));
@@ -134,6 +139,10 @@ public class JobClientFactoryBean implements FactoryBean<JobClient>,
 
     public void setRegistryAddress(String registryAddress) {
         this.registryAddress = registryAddress;
+    }
+
+    public void setAuth(String auth) {
+        this.auth = auth;
     }
 
     public void setDataPath(String dataPath) {

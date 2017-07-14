@@ -21,6 +21,7 @@ public class TaskTrackerFactoryBean extends TaskTrackerAnnotationFactoryBean {
         setBizLoggerLevel(cfg.getBizLoggerLevel() == null ? null : cfg.getBizLoggerLevel().name());
         setClusterName(cfg.getClusterName());
         setRegistryAddress(cfg.getRegistryAddress());
+        setAuth(cfg.getAuth());
         setNodeGroup(cfg.getNodeGroup());
         setWorkThreads(cfg.getWorkThreads());
 

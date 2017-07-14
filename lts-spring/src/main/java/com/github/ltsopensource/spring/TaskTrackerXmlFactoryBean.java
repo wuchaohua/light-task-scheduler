@@ -40,6 +40,10 @@ public abstract class TaskTrackerXmlFactoryBean implements FactoryBean<TaskTrack
      */
     private String registryAddress;
     /**
+     * zookeeper(Redis)密码
+     */
+    private String auth;
+    /**
      * 提交失败任务存储路径 , 默认用户木邻居
      */
     private String dataPath;
@@ -92,6 +96,7 @@ public abstract class TaskTrackerXmlFactoryBean implements FactoryBean<TaskTrack
             properties.setDataPath(dataPath);
             properties.setNodeGroup(nodeGroup);
             properties.setRegistryAddress(registryAddress);
+            properties.setAuth(auth);
             properties.setBindIp(bindIp);
             properties.setIdentity(identity);
             properties.setBizLoggerLevel(bizLoggerLevel);
@@ -146,6 +151,10 @@ public abstract class TaskTrackerXmlFactoryBean implements FactoryBean<TaskTrack
 
     public void setRegistryAddress(String registryAddress) {
         this.registryAddress = registryAddress;
+    }
+
+    public void setAuth(String auth) {
+        this.auth = auth;
     }
 
     public void setDataPath(String dataPath) {

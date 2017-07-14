@@ -14,6 +14,8 @@ public class TaskTrackerCfg {
 
     private String registryAddress;
 
+    private String auth;
+
     private String clusterName;
 
     private Level bizLoggerLevel;
@@ -34,6 +36,14 @@ public class TaskTrackerCfg {
 
     public String getRegistryAddress() {
         return registryAddress;
+    }
+
+    public String getAuth() {
+        return auth;
+    }
+
+    public void setAuth(String auth) {
+        this.auth = auth;
     }
 
     public void setRegistryAddress(String registryAddress) {

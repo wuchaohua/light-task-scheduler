@@ -16,6 +16,7 @@ public class DefaultStartup {
         final TaskTracker taskTracker = new TaskTracker();
         taskTracker.setJobRunnerClass(cfg.getJobRunnerClass());
         taskTracker.setRegistryAddress(cfg.getRegistryAddress());
+        taskTracker.setRegistryAuth(cfg.getAuth());
         taskTracker.setNodeGroup(cfg.getNodeGroup());
         taskTracker.setClusterName(cfg.getClusterName());
         taskTracker.setWorkThreads(cfg.getWorkThreads());

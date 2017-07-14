@@ -20,6 +20,9 @@ public class JobTrackerStartup {
 
             final JobTracker jobTracker = new JobTracker();
             jobTracker.setRegistryAddress(cfg.getRegistryAddress());
+            if (StringUtils.isNotEmpty(cfg.getAuth())) {
+                jobTracker.setRegistryAuth(cfg.getAuth());
+            }
             jobTracker.setListenPort(cfg.getListenPort());
             jobTracker.setClusterName(cfg.getClusterName());
             if (StringUtils.isNotEmpty(cfg.getBindIp())) {

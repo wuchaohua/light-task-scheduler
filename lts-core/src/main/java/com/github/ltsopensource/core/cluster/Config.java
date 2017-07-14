@@ -27,6 +27,8 @@ public class Config implements Serializable {
     private NodeType nodeType;
     // 注册中心 地址
     private String registryAddress;
+    // 注册中心 密码
+    private String auth;
     // 远程连接超时时间
     private int invokeTimeoutMillis;
     // 监听端口
@@ -276,6 +278,13 @@ public class Config implements Serializable {
         internalData.put(key, value);
     }
 
+    public String getAuth() {
+        return auth;
+    }
+
+    public void setAuth(String auth) {
+        this.auth = auth;
+    }
 
     @Override
     public String toString() {

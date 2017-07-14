@@ -45,6 +45,9 @@ public class JobClientBuilder extends AbstractNodeBuilder<JobClient, JobClientBu
             jobClient = new JobClient();
         }
         jobClient.setRegistryAddress(properties.getRegistryAddress());
+        if (StringUtils.isNotEmpty(properties.getAuth())) {
+            jobClient.setRegistryAuth(properties.getAuth());
+        }
         if (StringUtils.isNotEmpty(properties.getClusterName())) {
             jobClient.setClusterName(properties.getClusterName());
         }

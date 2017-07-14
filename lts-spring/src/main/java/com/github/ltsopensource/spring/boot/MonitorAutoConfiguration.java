@@ -36,6 +36,9 @@ public class MonitorAutoConfiguration implements InitializingBean, DisposableBea
         if (StringUtils.isNotEmpty(properties.getClusterName())) {
             agent.setClusterName(properties.getClusterName());
         }
+        if (StringUtils.isNotEmpty(properties.getAuth())) {
+            agent.setRegistryAuth(properties.getAuth());
+        }
         if (StringUtils.isNotEmpty(properties.getIdentity())) {
             agent.setIdentity(properties.getIdentity());
         }

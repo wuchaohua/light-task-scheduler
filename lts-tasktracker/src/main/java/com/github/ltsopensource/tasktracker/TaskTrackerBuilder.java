@@ -25,6 +25,9 @@ public class TaskTrackerBuilder extends AbstractNodeBuilder<TaskTracker, TaskTra
     public static TaskTracker buildByProperties(TaskTrackerProperties properties) {
         TaskTracker taskTracker = new TaskTracker();
         taskTracker.setRegistryAddress(properties.getRegistryAddress());
+        if (StringUtils.isNotEmpty(properties.getAuth())) {
+            taskTracker.setRegistryAuth(properties.getAuth());
+        }
         if (StringUtils.isNotEmpty(properties.getClusterName())) {
             taskTracker.setClusterName(properties.getClusterName());
         }

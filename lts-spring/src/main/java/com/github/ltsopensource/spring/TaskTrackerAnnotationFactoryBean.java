@@ -51,7 +51,11 @@ public class TaskTrackerAnnotationFactoryBean implements FactoryBean<TaskTracker
      */
     private String registryAddress;
     /**
-     * 提交失败任务存储路径 , 默认用户木邻居
+     * zookeeper(Redis)密码
+     */
+    private String auth;
+    /**
+     * 提交失败任务存储路径 , 默认用户目录
      */
     private String dataPath;
     /**
@@ -116,6 +120,7 @@ public class TaskTrackerAnnotationFactoryBean implements FactoryBean<TaskTracker
             properties.setDataPath(dataPath);
             properties.setNodeGroup(nodeGroup);
             properties.setRegistryAddress(registryAddress);
+            properties.setAuth(auth);
             properties.setBindIp(bindIp);
             properties.setIdentity(identity);
             properties.setWorkThreads(workThreads);
@@ -200,6 +205,10 @@ public class TaskTrackerAnnotationFactoryBean implements FactoryBean<TaskTracker
 
     public void setRegistryAddress(String registryAddress) {
         this.registryAddress = registryAddress;
+    }
+
+    public void setAuth(String auth) {
+        this.auth = auth;
     }
 
     public void setDataPath(String dataPath) {

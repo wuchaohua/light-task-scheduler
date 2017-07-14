@@ -29,5 +29,6 @@ public class NodeFactory {
         node.setPort(config.getListenPort());
         node.setIdentity(config.getIdentity());
         node.setClusterName(config.getClusterName());
+        node.setAuth(config.getAuth());
     }
 }

@@ -25,6 +25,9 @@ public class JobTrackerBuilder extends AbstractNodeBuilder<JobTracker, JobTracke
 
         JobTracker jobTracker = new JobTracker();
         jobTracker.setRegistryAddress(properties.getRegistryAddress());
+        if (StringUtils.isNotEmpty(properties.getAuth())) {
+            jobTracker.setRegistryAuth(properties.getAuth());
+        }
         if (StringUtils.isNotEmpty(properties.getClusterName())) {
             jobTracker.setClusterName(properties.getClusterName());
         }

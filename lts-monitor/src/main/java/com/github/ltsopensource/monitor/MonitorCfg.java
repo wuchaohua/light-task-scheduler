@@ -11,6 +11,8 @@ public class MonitorCfg {
 
     private String registryAddress;
 
+    private String auth;
+
     private String bindIp;
 
     private String clusterName;
@@ -55,5 +57,13 @@ public class MonitorCfg {
 
     public void setConfigs(Map<String, String> configs) {
         this.configs = configs;
+    }
+
+    public String getAuth() {
+        return auth;
+    }
+
+    public void setAuth(String auth) {
+        this.auth = auth;
     }
 }

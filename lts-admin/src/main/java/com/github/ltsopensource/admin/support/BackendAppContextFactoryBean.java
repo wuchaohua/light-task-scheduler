@@ -57,6 +57,7 @@ public class BackendAppContextFactoryBean implements FactoryBean<BackendAppConte
         config.setIdentity(node.getIdentity());
         config.setNodeType(node.getNodeType());
         config.setRegistryAddress(AppConfigurer.getProperty("registryAddress"));
+        config.setAuth(AppConfigurer.getProperty("auth"));
         String clusterName = AppConfigurer.getProperty("clusterName");
         if (StringUtils.isEmpty(clusterName)) {
             throw new IllegalArgumentException("clusterName in lts-admin.cfg can not be null.");

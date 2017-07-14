@@ -71,6 +71,8 @@ public class NodeRegistryUtils {
                     node.setHostName(value);
                 } else if ("httpCmdPort".equals(key)) {
                     node.setHttpCmdPort(Integer.valueOf(value));
+                } else if ("auth".equals(key)) {
+                    node.setAuth(value);
                 }
             }
             return node;
@@ -116,6 +118,10 @@ public class NodeRegistryUtils {
 
         if (node.getHttpCmdPort() != null) {
             path.append("&httpCmdPort=").append(node.getHttpCmdPort());
+        }
+
+        if (node.getAuth() != null) {
+            path.append("&auth=").append(node.getAuth());
         }
 
         return path.toString();

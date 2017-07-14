@@ -32,6 +32,10 @@ public class JobTrackerFactoryBean implements FactoryBean<JobTracker>,
      */
     private String registryAddress;
     /**
+     * zookeeper(Redis)密码
+     */
+    private String auth;
+    /**
      * master节点变化监听器
      */
     private MasterChangeListener[] masterChangeListeners;
@@ -78,6 +82,7 @@ public class JobTrackerFactoryBean implements FactoryBean<JobTracker>,
             properties.setListenPort(listenPort);
             properties.setClusterName(clusterName);
             properties.setRegistryAddress(registryAddress);
+            properties.setAuth(auth);
             properties.setBindIp(bindIp);
             properties.setIdentity(identity);
             properties.setConfigs(CollectionUtils.toMap(configs));
@@ -119,6 +124,10 @@ public class JobTrackerFactoryBean implements FactoryBean<JobTracker>,
 
     public void setRegistryAddress(String registryAddress) {
         this.registryAddress = registryAddress;
+    }
+
+    public void setAuth(String auth) {
+        this.auth = auth;
     }
 
     public void setMasterChangeListeners(MasterChangeListener... masterChangeListeners) {

@@ -160,6 +160,7 @@ public abstract class AbstractJobNode<T extends Node, Context extends AppContext
         if (StringUtils.isEmpty(config.getIp())) {
             config.setIp(NetUtils.getLocalHost());
         }
+
         if (StringUtils.isEmpty(config.getIdentity())) {
             JobNodeConfigFactory.buildIdentity(config);
         }
@@ -280,6 +281,13 @@ public abstract class AbstractJobNode<T extends Node, Context extends AppContext
      */
     public void setRegistryAddress(String registryAddress) {
         config.setRegistryAddress(registryAddress);
+    }
+
+    /**
+     * 设置zookeeper注册中心密码
+     */
+    public void setRegistryAuth(String password) {
+        config.setAuth(password);
     }
 
     /**
